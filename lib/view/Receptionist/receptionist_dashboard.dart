@@ -99,7 +99,7 @@ class _ReceptionistDashboardState extends State<ReceptionistDashboard> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              "Book Appointment",
+              "Queue management",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
             ),
             const SizedBox(height: 20),
@@ -186,7 +186,6 @@ class _ReceptionistDashboardState extends State<ReceptionistDashboard> {
 
                                   });
                                 }, child: Text('skip'))
-                                
                               ],
                             ),
                           ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_test/view/Receptionist/receptionist_dashboard.dart';
 import 'package:frontend_test/view/admin_page.dart';
+import 'package:frontend_test/view/doctor/doctor_dashboard.dart';
 import 'package:frontend_test/view/patient/patient_dashboard.dart';
 import '../services/auth_api.dart';
 
@@ -83,13 +84,21 @@ class _LoginPageState extends State<LoginPage> {
                             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => AdminPage(),));
                           }
 
-                          if(data["user"]["role"] == "patient"){
+                          else if(data["user"]["role"] == "patient"){
                             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => PatientDashboard(),));
                           }
 
-                          if(data["user"]["role"] == "receptionist"){
+                          else if(data["user"]["role"] == "receptionist"){
                             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ReceptionistDashboard(),));
                           }
+
+                          else if(data["user"]["role"] == "doctor"){
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DoctorDashboard(),));
+                          }
+                          else{
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('No User found'),backgroundColor: Colors.red,));
+                          }
+
                         }
 
                       },
